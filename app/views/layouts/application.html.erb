@@ -7,7 +7,7 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body id "store">
+<body id="store">
 	<div id="banner">
 		<%= image_tag("logo.png") %>
 		<%= @page_title || "Pragmatic Bookshelf" %>
@@ -20,6 +20,7 @@
 			<a href="http://localhost:3000/contact">Contact</a><br />
 			<hr>
 			<p><%= @current_time %></p>
+			<p><%= 'Viewed ' + @display_count.to_s + ' times' if @display_count %></p>
 		</div>
 		<div id="main">
 			<%= yield %>
