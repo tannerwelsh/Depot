@@ -14,6 +14,9 @@
 	</div>
 	<div id="columns">
 		<div id="side">
+			<% if @cart %>
+				<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") { render @cart } %>
+			<% end %>
 			<a href="http://localhost:3000/">Home</a><br />
 			<a href="http://localhost:3000/faq">Questions</a><br />
 			<a href="http://localhost:3000/news">News</a><br />
