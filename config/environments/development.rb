@@ -14,6 +14,20 @@ Depot::Application.configure do
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
+  # Set email delivery method
+  config.action_mailer.delivery_method = :smtp
+  
+  # Configure SMTP settings
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "http://localhost:3000/",
+    :authentication => "plain",
+    :user_name => "tannerwelsh",
+    :password => "yeahbaby",
+    :enable_starttls_auto => true
+  }
+
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
