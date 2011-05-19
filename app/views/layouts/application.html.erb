@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
+  <title>Pragprog Books Online Store</title>
   <%= stylesheet_link_tag "scaffold" %>
 	<%= stylesheet_link_tag "depot", :media => "all" %>
   <%= javascript_include_tag :defaults %>
@@ -9,18 +9,23 @@
 </head>
 <body id="store">
 	<div id="banner">
+		<%= form_tag store_path, :class => 'locale' do %>
+			<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), :onchange => 'this.form.submit()' %>
+			<%= submit_tag 'submit' %>
+			<%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+		<% end %>
 		<%= image_tag("logo.png") %>
-		<%= @page_title || "Pragmatic Bookshelf" %>
+		<%= @page_title || t('.title') %>
 	</div>
 	<div id="columns">
 		<div id="side">
 			<% if @cart %>
 				<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") { render @cart } %>
 			<% end %>
-			<a href="http://localhost:3000/">Home</a><br />
-			<a href="http://localhost:3000/faq">Questions</a><br />
-			<a href="http://localhost:3000/news">News</a><br />
-			<a href="http://localhost:3000/contact">Contact</a><br />
+			<a href="http://localhost:3000/"><%= t('.home') %></a><br />
+			<a href="http://localhost:3000/faq"><%= t('.questions') %></a><br />
+			<a href="http://localhost:3000/news"><%= t('.news') %></a><br />
+			<a href="http://localhost:3000/contact"><%= t('.contact') %></a><br />
 			
 			<% if session[:user_id] %>
 				<br />
