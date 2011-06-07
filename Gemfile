@@ -11,7 +11,7 @@ gem 'sqlite3'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
@@ -31,3 +31,15 @@ gem 'will_paginate', '>= 3.0.pre'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+# Use sqlite3 for development and test environments
+group :development do
+	gem 'sqlite3'
+end
+group :test do
+	gem 'sqlite3'
+end
+# Use MySQL for production environment
+group :production do
+	gem 'mysql'
+end
