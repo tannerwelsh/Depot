@@ -1,0 +1,14 @@
+<div class="cart_title"><%= t('.title') %></div>
+<table border="0" cellspacing="2" cellpadding="2">
+	<%= render(cart.line_items) %>
+	
+	<tr class="total_line">
+		<td colspan="2">Total</td>
+		<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+	</tr>
+</table>
+
+<% unless @order # hide buttons if order checkout has begun -%>
+	<%= button_to t('.checkout'), new_order_path, :method => :get %>
+	<%= button_to t('.empty'), cart, :method => :delete, :confirm => 'Are you sure?', :remote => true %>
+<% end %>
