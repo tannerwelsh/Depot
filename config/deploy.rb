@@ -4,7 +4,7 @@ set :application, 'depot'
 
 # File paths
 set :repository, "git@github.com:openspectrum/LearningRails---Depot.git"
-set :deploy_to, "/home/#{user}/sandbox/depot"
+set :deploy_to, "/home/#{user}/etc/rails_apps/depot"
 
 # Distribute your applications across servers (the instructions below put them
 # all on the same server, defined as 'domain', adjust as necessary)
@@ -13,7 +13,7 @@ role :web, domain
 role :db, domain, :primary => true
 
 # Set if not seeing password prompts
-# default_run_options[:pty] = true
+default_run_options[:pty] = true
 
 # As Capistrano executes in a non-interactive mode and therefore doesn't cause
 # any of your shell profile scripts to be run, the following might be needed

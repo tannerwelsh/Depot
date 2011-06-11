@@ -19,8 +19,8 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: depot_production
+  database: openspe1_depot
   pool: 5
-  username: depot
+  username: openspe1_depot
   password: depot
-  host: localhost
+  host: 69.175.71.58
