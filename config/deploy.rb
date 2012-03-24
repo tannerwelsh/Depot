@@ -3,7 +3,7 @@ set :domain, 'www.openspectrumstudios.com'
 set :application, 'depot'
 
 # File paths
-set :repository, "git@github.com:openspectrum/LearningRails---Depot.git"
+set :repository, "git@github.com:openspectrum/Depot.git"
 set :deploy_to, "/home/#{user}/etc/rails_apps/depot"
 
 # Distribute your applications across servers (the instructions below put them
